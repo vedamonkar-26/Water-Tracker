@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💧Water Tracker</title>
+
+       <link rel="stylesheet" href="style.css"> 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  
+</head>
+<body>
+
+<header>
+  <h2>💧Water Tracker</h2>
+  <nav id="navBar">
+    <a id="navHome">Home</a>
+    <a id="navTracker">Water Usage Tracker</a>
+    <a id="navAbout">About</a>
+    <a id="navContact">Contact</a>
+    <a id="navLogin">Login</a>
+    <a id="navRegister">Register</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+  <h1>Track and Reduce Your <span style="color:#1a73e8;">Water Usage</span> Today</h1>
+  <p>Monitor your water consumption and save money while protecting the environment.</p>
+  <a class="btn-primary" id="heroTracker">Try Water Tracker Now →</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h1 class="title">About <span style="color:#1a73e8;">WaterTracker</span></h1>
+  <p class="subtitle">Empowering households to monitor and reduce their water consumption.</p>
+
+  <div class="about-container">
+    <div class="about-text">
+      <p>
+        💧 <b>WaterTracker</b> is a simple yet powerful web tool that helps you calculate your 
+        weekly water usage and visualize where most of it goes — showers, laundry, flushing, or lawn care.
+        By understanding your consumption patterns, you can take small steps toward sustainable living
+        and save both water and money.
+      </p>
+      <p>
+        🌍 Every drop counts! With personalized insights and smart comparisons, 
+        you’ll be able to see how your household stacks up against your set goals.
+        Track, analyze, and improve — all in one place.
+      </p>
+    </div>
+
+    <div class="about-image-grid">
+      <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80" alt="Saving Water" />
+      <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=800&q=80" alt="Water Usage" />
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3208/3208707.png" alt="Calculator Icon" />
+        <h3>Smart Calculator</h3>
+        <p>Instantly estimate your weekly water usage with everyday activity inputs.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3199/3199875.png" alt="Chart Icon" />
+        <h3>Visual Insights</h3>
+        <p>Beautiful charts help you see where you can make the biggest difference.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Tips Icon" />
+        <h3>Personalized Tips</h3>
+        <p>Get AI-based water-saving suggestions tailored to your household habits.</p>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<!-- CONTACT -->
+<section id="contact" style="display:none; padding:80px 60px; background:#f8fbff;">
+  <h1 class="title">Contact <span style="color:#1a73e8;">Us</span></h1>
+  <p class="subtitle">Have questions about water conservation or our tracker? Our team is here to help.</p>
+
+  <div class="contact-container">
+    <!-- Left: Info Cards -->
+    <div class="contact-info">
+      <div class="info-card">
+        <h3>📧 Email Us</h3>
+        <p>For general inquiries and support</p>
+        <a href="mailto:vedamonkar04@gmail.com">vedamonkar04@gmail.com</a><br>
+        <a href="mailto:shraddha05@gmail.com">shraddha05@gmail.com</a>
+
+      </div>
+      <div class="info-card">
+        <h3>📞 Call Us</h3>
+        <p>Monday to Friday, 9am - 5pm IST</p>
+        <a href="tel:+91 1234567891">+91 1234567891</a>
+      </div>
+      <div class="info-card">
+        <h3>📍 Location</h3>
+        <p>Vasco<br>Goa, India</p>
+      </div>
+      <div class="info-card">
+        <h3>⏰ Hours</h3>
+        <p>
+          Monday - Friday: 9am - 5pm IST<br>
+          Saturday: 10am - 2pm IST<br>
+          Sunday: Closed
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Message Form -->
+    <div class="contact-form">
+      <h2>💬 Send Us a Message</h2>
+      <form onsubmit="event.preventDefault(); sendMessage();">
+        <div class="row">
+          <div class="col">
+            <label>Your Name</label>
+            <input type="text" id="contactName" placeholder="John Doe" required>
+          </div>
+          <div class="col">
+            <label>Your Email</label>
+            <input type="email" id="contactEmail" placeholder="john@example.com" required>
+          </div>
+        </div>
+
+        <label>Subject</label>
+        <select id="contactSubject" required>
+          <option value="">Select a subject</option>
+          <option>General Inquiry</option>
+          <option>Technical Support</option>
+          <option>Feedback</option>
+          <option>Other</option>
+        </select>
+
+        <label>Your Message</label>
+        <textarea id="contactMessage" placeholder="How can we help you?" rows="5" required></textarea>
+
+        <button class="btn-calc" style="width:100%; margin-top:10px;">
+          ✈️ Send Message
+        </button>
+        <p id="contactResponse" style="margin-top:10px; font-weight:600; color:#1a73e8;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN PAGE -->
+<section id="loginPage" class="form-page">
+  <div class="form-container">
+    <h2>Login</h2>
+    <label>Email</label>
+    <input type="email" id="loginEmail" placeholder="Enter your email">
+    <label>Password</label>
+    <input type="password" id="loginPass" placeholder="Enter your password">
+
+    <div class="button-row">
+      <button class="btn-calc" id="loginBtn">Login</button>
+      <button class="btn-back" onclick="showSection(home)">← Back</button>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER PAGE -->
+<section id="registerPage" class="form-page">
+  <div class="form-container">
+   <h2>Create Account</h2>
+    <label>Full Name</label>
+    <input type="text" id="regName" placeholder="Enter your full name">
+    <label>Email</label>
+    <input type="email" id="regEmail" placeholder="Enter your email">
+    <label>Password</label>
+    <input type="password" id="regPass" placeholder="Create a password">
+
+    <div class="button-row">
+      <button class="btn-calc" id="registerBtn">Register</button>
+      <button class="btn-back" onclick="showSection(home)">← Back</button>
+    </div>
+  </div> 
+</section>
+
+<!-- TRACKER -->
+<section id="tracker">
+  <h1 class="title">Water Usage Tracker</h1>
+  <p class="subtitle">Calculate your water usage and compare with your goals.</p>
+
+  <p id="dateDisplay" style="text-align:center;color:#333;margin-bottom:20px;font-weight:600;"></p>
+
+  <div class="container">
+    <div class="calc-box">
+      <h2 class="section-title">Water Usage Calculator</h2>
+
+      <label>Weekly Target (Liters)</label>
+      <input type="number" id="target" placeholder="Enter your weekly goal" />
+      <button class="btn-calc" onclick="setManualTarget()">Set Target</button>
+
+      <label>Household Size</label>
+      <input type="number" id="household" placeholder="Enter number of people" min="1" />
+
+      <h3 class="section-title">Daily Water Activities</h3>
+      <label>Showers per week (per person)</label>
+      <input type="number" id="showers" placeholder="Enter number of showers" />
+      <label>Shower Duration (minutes)</label>
+      <input type="number" id="duration" placeholder="Enter shower length" />
+      <label>Toilet Flushes per day (per person)</label>
+      <input type="number" id="flushes" placeholder="Enter number of flushes per day" />
+      <label>Laundry Loads per Week</label>
+      <input type="number" id="laundry" placeholder="Enter loads per week" />
+      <label>Dishwasher Uses per Week</label>
+      <input type="number" id="dishwasher" placeholder="Enter uses per week" />
+      <label>Brushing Teeth (minutes per day per person)</label>
+      <input type="number" id="brushing" placeholder="Enter brushing minutes" />
+      <label>Lawn Watering Duration (minutes per week)</label>
+      <input type="number" id="lawn" placeholder="Enter minutes watering per week" />
+
+      <button class="btn-calc" onclick="calculateWater()">Calculate</button>
+      <p class="result" id="resultText"></p>
+    </div>
+
+    <div class="profile-box">
+      <h2 class="section-title">Your Water Profile</h2>
+      <p id="profileText">Fill the details to see your water footprint.</p>
+      <p id="compareText" style="color:#555;margin-top:10px;"></p>
+      <canvas id="waterChart" style="margin-top:20px; max-height:300px;"></canvas>
+      <p id="progressText" style="margin-top:15px;font-weight:600;"></p>
+      <div class="progress-container">
+  <div id="progressBar" class="progress-bar"></div>
+  
+</div>
+
+
+
+      <div id="tipsBox" style="margin-top:25px; background:#f9fcff; border-left:5px solid #1a73e8; padding:15px; border-radius:8px; display:none;">
+        <h3 style="margin-bottom:10px;">💧 Personalized Water Saving Tips</h3>
+        <ul id="tipsList" style="color:#333; font-size:16px; line-height:1.6;"></ul>
+      </div>
+
+      <button id="logoutBtn" class="btn-calc" style="display:none; background:#d9534f;">Logout</button>
+    </div>
+  </div>
+  <!-- WATER CONSERVATION TIPS SECTION -->
+<div class="tips-section">
+  <h2>💧 Top Water Conservation Tips</h2>
+  <p class="subtitle">Implement these practical suggestions to start saving water right away.</p>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>In the Bathroom</h3>
+      <ul>
+        <li>💦 Limit showers to 5 minutes to save up to 15 gallons per shower.</li>
+        <li>💦 Install low-flow showerheads and faucet aerators to reduce water flow.</li>
+        <li>💦 Fix leaky faucets promptly — a dripping faucet can waste 20 gallons per day.</li>
+        <li>💦 Turn off the tap while brushing teeth or shaving to save 8 gallons per day.</li>
+        <li>💦 Install dual-flush or low-flow toilets to minimize waste.</li>
+      </ul>
+    </div>
+
+    <div class="tip-card">
+      <h3>In the Kitchen & Laundry</h3>
+      <ul>
+        <li>💧 Run dishwashers and washing machines only when full.</li>
+        <li>💧 Keep a pitcher of drinking water in the fridge instead of running the tap.</li>
+        <li>💧 Use the appropriate water level or load size on washing machines.</li>
+        <li>💧 Scrape dishes instead of pre-rinsing before loading the dishwasher.</li>
+        <li>💧 Thaw frozen foods in the fridge, not under running water.</li>
+      </ul>
+    </div>
+
+    <div class="tip-card">
+      <h3>Outdoors</h3>
+      <ul>
+        <li>🌿 Water lawns early in the morning or evening to reduce evaporation.</li>
+        <li>🌿 Use a rain barrel to collect water from downspouts for gardens.</li>
+        <li>🌿 Adjust sprinklers to avoid watering sidewalks and streets.</li>
+        <li>🌿 Use drought-resistant plants and efficient irrigation systems.</li>
+        <li>🌿 Sweep driveways instead of hosing them down.</li>
+      </ul>
+    </div>
+
+    <div class="tip-card">
+      <h3>Maintenance</h3>
+      <ul>
+        <li>🔧 Check and repair leaks in pipes, faucets, and toilets regularly.</li>
+        <li>🔧 Install water-efficient appliances when replacing old ones.</li>
+        <li>🔧 Insulate hot water pipes for faster heating and less waste.</li>
+        <li>🔧 Consider a smart water meter to detect leaks and monitor usage.</li>
+        <li>🔧 Schedule routine plumbing checkups to prevent issues early.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
